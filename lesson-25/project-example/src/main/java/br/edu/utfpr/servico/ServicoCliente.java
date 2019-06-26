@@ -19,17 +19,20 @@ public class ServicoCliente {
     private List<PaisDTO> paises;
 
     public ServicoCliente() {
-        clientes = Stream.of(
-                ClienteDTO.builder().id(1).nome("Kamilla").idade(21).limiteCredito(1200.50).telefone("12345678").pais(paises.get(1)).build(),
-                ClienteDTO.builder().id(2).nome("Gustavo").idade(22).limiteCredito(570.00).telefone("09876543").pais(paises.get(0)).build(),
-                ClienteDTO.builder().id(3).nome("Yago").idade(27).limiteCredito(3900.00).telefone("38313755").pais(paises.get(2)).build()
-        ).collect(Collectors.toList());
 
         paises = Stream.of(
                 PaisDTO.builder().id(1).nome("Brasil").sigla("BR").codigoTelefone(55).build(),
                 PaisDTO.builder().id(2).nome("Estados Unidos da América").sigla("EUA").codigoTelefone(33).build(),
                 PaisDTO.builder().id(3).nome("Reino Unido").sigla("RU").codigoTelefone(44).build()
         ).collect(Collectors.toList());
+
+        clientes = Stream.of(
+                ClienteDTO.builder().id(1).nome("Kamilla").idade(21).limiteCredito(1200.50).telefone("12345678").pais(paises.get(1)).build(),
+                ClienteDTO.builder().id(2).nome("Gustavo").idade(22).limiteCredito(570.00).telefone("09876543").pais(paises.get(0)).build(),
+                ClienteDTO.builder().id(3).nome("Yago").idade(27).limiteCredito(3900.00).telefone("38313755").pais(paises.get(2)).build()
+        ).collect(Collectors.toList());
+
+
     }
 
     @GetMapping("/servico/cliente")
